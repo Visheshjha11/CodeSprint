@@ -30,11 +30,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-6 border-t hairline flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] tracking-[0.25em] text-[var(--muted-foreground)]">
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent-green)] shadow-[0_0_6px_var(--accent-green)] animate-pulse" />
-            ALL SYSTEMS NOMINAL
-          </div>
-          <div>© {new Date().getFullYear()} CODESPRINT // NO TELEMETRY REQUIRED</div>
+          <div>© {new Date().getFullYear()} CODESPRINT</div>
         </div>
       </div>
     </footer>
