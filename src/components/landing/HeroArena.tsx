@@ -14,8 +14,8 @@ export function HeroArena() {
             <span className="text-[var(--primary)] text-glow-primary">10x Developer.</span>
           </h1>
           <p className="mt-5 text-[var(--muted-foreground)] leading-relaxed">
-            Autocomplete made your mechanics weak.<br />
-            Your fingers should move as fast as your brain.
+            Code faster than you think.<br />
+            Train mechanics that compound.
           </p>
           <div className="mt-6 flex items-center gap-3">
             <a

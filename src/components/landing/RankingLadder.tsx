@@ -21,7 +21,7 @@ export function RankingLadder() {
       <div className="overflow-x-auto">
         <div className="flex items-stretch min-w-[820px]">
           {TIERS.map((t, i) => {
-            const here = t.name === "Silver";
+            const here = t.name === "Master";
             return (
               <div key={t.name} className="flex-1 min-w-0">
                 <div className={`h-1`} style={{ backgroundColor: t.color, opacity: 0.4 + i * 0.08 }}/>
