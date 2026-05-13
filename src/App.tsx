@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index.tsx";
-import NotFoundComponent from "./components/NotFoundComponent.tsx";
+import Index from "./pages/Index";
+import NotFoundComponent from "./components/NotFoundComponent";
 
 function App() {
   return (

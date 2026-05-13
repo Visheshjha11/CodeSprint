@@ -1,6 +1,6 @@
 import { TopNav } from "@/components/landing/TopNav";
 import { HeroArena } from "@/components/landing/HeroArena";
-import { WhyDevsFail } from "@/components/landing/WhyDevsFail";
+import { WhyDevsFail } from "@/components/landing/WhyDevsLacks";
 import { DailyLoop } from "@/components/landing/DailyLoop";
 import { GameplayDepth } from "@/components/landing/GameplayDepth";
 import { FlowScoreSection } from "@/components/landing/FlowScoreSection";
