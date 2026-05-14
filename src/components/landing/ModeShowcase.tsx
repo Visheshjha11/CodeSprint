@@ -1,5 +1,6 @@
 import { Section, SectionHeader } from "./SectionHeader";
 import { MODES, SNIPPETS } from "@/constants/snippets";
+import { motion } from "framer-motion";
 
 const ACCENT: Record<string, string> = {
   primary: "var(--primary)",
@@ -17,25 +18,37 @@ export function ModeShowcase() {
         title="Eight modes. One discipline."
         sub="Pick your weapon. Each mode trains a different mechanic - frontend reflexes, terminal muscle, query construction."
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--border)] border-b hairline">
-        {MODES.map((m) => {
+      <motion.div 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--border)] border hairline shadow-xl"
+      >
+        {MODES.map((m, i) => {
           const preview = SNIPPETS[m.id][0].split("\n").slice(0, 3).join("\n");
           return (
-            <div key={m.id} className="bg-[var(--surface-1)] p-6 sm:p-5 lg:p-4 group cursor-default border-l-2 hover:bg-[var(--surface-2)] transition-colors min-h-[160px] flex flex-col"
-              style={{ borderLeftColor: ACCENT[m.accent] }}>
-              <div className="flex items-center justify-between text-[10px] tracking-[0.3em] text-[var(--muted-foreground)]">
+            <motion.div 
+              key={m.id} 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ backgroundColor: "var(--surface-2)", zIndex: 10 }}
+              className="bg-[var(--surface-1)] p-8 sm:p-6 lg:p-8 group cursor-default border-l-2 transition-all flex flex-col relative"
+              style={{ borderLeftColor: ACCENT[m.accent] }}
+            >
+              <div className="flex items-center justify-between text-[10px] tracking-[0.4em] text-[var(--muted-foreground)] font-bold uppercase">
                 <span>{m.short}</span>
-                <span className="opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
               </div>
-              <div className="mt-3 sm:mt-2 text-base sm:text-lg lg:text-base font-medium">{m.name}</div>
-              <div className="text-[11px] text-[var(--muted-foreground)] mt-1">{m.tag}</div>
-              <pre className="mt-auto pt-4 text-[11px] leading-5 text-[var(--muted-foreground)]/60 font-mono overflow-hidden line-clamp-2 italic">
+              <div className="mt-4 text-lg lg:text-xl font-bold tracking-tight">{m.name}</div>
+              <div className="text-[11px] tracking-[0.1em] text-[var(--muted-foreground)] mt-2 font-bold opacity-80">{m.tag}</div>
+              <pre className="mt-8 pt-6 border-t border-white/5 text-[11px] leading-relaxed text-[var(--muted-foreground)] font-mono overflow-hidden line-clamp-2 italic opacity-40 group-hover:opacity-100 transition-opacity">
                 {preview}
               </pre>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </Section>
   );
 }

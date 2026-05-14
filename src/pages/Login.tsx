@@ -14,12 +14,12 @@ export default function Login() {
     // Simulate backend high load / latency
     setTimeout(() => {
       setIsLoading(false);
-      setError("High traffic detected. Primary gateway is saturated. Please retry in 5s.");
+      setError("High traffic detected. Please try again after some time.");
       
       setTimeout(() => setError(null), 5000);
     }, 1500);
   };
-      
+
   return (
     <div className="min-h-screen bg-[var(--background)] flex flex-col items-center justify-center p-6 relative overflow-hidden">
       {/* Background patterns */}
