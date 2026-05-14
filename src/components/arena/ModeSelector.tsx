@@ -18,7 +18,7 @@ export function ModeSelector({ value, onChange, compact = false }: {
           <button
             key={m.id}
             onClick={() => onChange(m.id)}
-            className={`px-2.5 py-1 text-[11px] tracking-[0.15em] uppercase transition-colors ${
+            className={`px-2.5 py-1 text-[11px] tracking-[0.15em] uppercase transition-colors whitespace-nowrap ${
               active
                 ? "bg-[var(--surface-3)] text-[var(--foreground)]"
                 : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"

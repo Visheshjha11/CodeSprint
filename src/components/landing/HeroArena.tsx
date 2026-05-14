@@ -14,7 +14,8 @@ export function HeroArena() {
             <span className="text-[var(--primary)] text-glow-primary">10x Developer.</span>
           </h1>
           <p className="mt-5 text-[var(--muted-foreground)] leading-relaxed max-w-md">
-            Code faster than you think.<br className="hidden sm:block" />
+            Code faster than you think.{" "}
+            <br className="hidden sm:block" />
             Train mechanics that compound.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">

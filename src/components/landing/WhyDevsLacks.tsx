@@ -15,10 +15,10 @@ export function WhyDevsFail() {
       />
       <div className="grid md:grid-cols-3 gap-px bg-[var(--border)]">
         {POINTS.map((p) => (
-          <div key={p.k} className="bg-[var(--surface-1)] p-6">
-            <div className="text-[10px] tracking-[0.3em] text-[var(--muted-foreground)]">{p.k} · FAULT</div>
-            <div className="mt-3 text-lg leading-snug">{p.t}</div>
-            <div className="mt-3 text-[var(--muted-foreground)] text-sm leading-relaxed">{p.d}</div>
+          <div key={p.k} className="bg-[var(--surface-1)] p-8 sm:p-6 lg:p-10 border-b hairline md:border-b-0">
+            <div className="text-[9px] tracking-[0.3em] text-[var(--muted-foreground)] uppercase">{p.k} · DIAGNOSIS</div>
+            <div className="mt-4 text-xl sm:text-lg lg:text-xl leading-snug font-medium">{p.t}</div>
+            <div className="mt-4 text-[var(--muted-foreground)] text-sm leading-relaxed">{p.d}</div>
           </div>
         ))}
       </div>

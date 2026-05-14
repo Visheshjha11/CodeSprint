@@ -8,7 +8,7 @@ export function ImmersionShowcase() {
         title="Hyperfocus is a state, not a setting."
         sub="At high streaks, the arena sharpens. Glow tightens. Telemetry accelerates. Your environment matches your tempo."
       />
-      <div className="grid md:grid-cols-2 gap-px bg-[var(--border)]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border)] border-b hairline">
         <Pane title="STANDBY" glow={false} />
         <Pane title="HYPERFOCUS" glow />
       </div>

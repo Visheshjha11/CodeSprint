@@ -31,10 +31,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-6 border-t hairline flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] tracking-[0.25em] text-[var(--muted-foreground)]">
-          <div className="flex items-center gap-4">
+        <div className="mt-16 pt-6 border-t hairline flex flex-col sm:flex-row items-center justify-between gap-6 text-[10px] tracking-[0.25em] text-[var(--muted-foreground)]">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <span>© {new Date().getFullYear()} CODESPRINT</span>
-            <span className="text-[var(--border)] opacity-30">|</span>
+            <span className="hidden sm:inline text-[var(--border)] opacity-30">|</span>
             <span>BUILT BY <a href="https://visheshjha.me" target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors">VISHESH</a></span>
           </div>
         </div>

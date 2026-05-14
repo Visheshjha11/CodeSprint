@@ -68,7 +68,7 @@ export function TypingArena({ demo = false }: { demo?: boolean }) {
       <div className="grid md:grid-cols-[1fr_220px]">
         <div className="relative p-4 min-h-[260px]">
           {demo && engine.state.index === 0 && (
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] text-[11px] tracking-[0.3em] z-10 animate-pulse-glow shadow-glow-primary">
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] text-[10px] sm:text-[11px] tracking-[0.3em] z-10 animate-pulse-glow shadow-glow-primary whitespace-nowrap">
               TRY DEMO: START TYPING
             </div>
           )}

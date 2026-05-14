@@ -32,8 +32,12 @@ export function SocialSystems() {
                   }}/>
                 ))}
               </div>
-              <div className="mt-3 flex justify-between text-[9px] sm:text-[10px] tracking-[0.25em] text-[var(--muted-foreground)] uppercase">
-                <span>JAN</span><span>APR</span><span>JUL</span><span>OCT</span><span>NOW</span>
+              <div className="mt-3 grid grid-cols-5 text-[9px] sm:text-[10px] tracking-[0.25em] text-[var(--muted-foreground)] uppercase">
+                <span>JAN</span>
+                <span className="text-center">APR</span>
+                <span className="text-center">JUL</span>
+                <span className="text-center">OCT</span>
+                <span className="text-right">NOW</span>
               </div>
             </div>
           </div>

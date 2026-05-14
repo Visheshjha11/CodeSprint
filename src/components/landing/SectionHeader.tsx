@@ -1,9 +1,9 @@
 export function SectionHeader({ tag, title, sub }: { tag: string; title: string; sub?: string }) {
   return (
-    <div className="mb-10">
-      <div className="text-[10px] tracking-[0.35em] text-[var(--muted-foreground)] mb-2">// {tag}</div>
-      <h2 className="text-3xl md:text-4xl tracking-tight max-w-2xl">{title}</h2>
-      {sub && <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl">{sub}</p>}
+    <div className="mb-10 sm:mb-14">
+      <div className="text-[9px] sm:text-[10px] tracking-[0.35em] text-[var(--muted-foreground)] mb-2 uppercase">// {tag}</div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl tracking-tight max-w-3xl leading-[1.1]">{title}</h2>
+      {sub && <p className="mt-4 text-sm sm:text-base text-[var(--muted-foreground)] max-w-2xl leading-relaxed">{sub}</p>}
     </div>
   );
 }
