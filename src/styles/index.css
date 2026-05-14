@@ -62,7 +62,7 @@
 }
 
 :root {
-  /* CodeSprint — dark, telemetry-driven */
+  /* CodeSprint - dark, telemetry-driven */
   --radius: 0.25rem;
 
   --background: oklch(0.18 0 0);          /* #111111 */
@@ -133,6 +133,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     border-color: var(--color-border);
   }

@@ -36,7 +36,7 @@ export function GameplayDepth() {
         </Card>
         <Card title="PRECISION" accent="cyan">
           <p className="text-[var(--muted-foreground)] text-sm">
-            Bonuses surface as quiet telemetry — never confetti.
+            Bonuses surface as quiet telemetry - never confetti.
           </p>
           <ul className="mt-4 space-y-1 text-[11px] tracking-[0.2em]">
             {["PERFECT LINE","ZERO-ERROR SEGMENT","CLUTCH RECOVERY","SYNTAX CHAIN","FASTEST FUNCTION"].map((b) => (

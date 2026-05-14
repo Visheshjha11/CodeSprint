@@ -19,7 +19,7 @@ export function Footer() {
             <nav className="flex flex-wrap gap-x-8 gap-y-4 text-[10px] tracking-[0.3em] text-[var(--muted-foreground)]">
               <a href="#" className="hover:text-[var(--foreground)] transition-colors">LEADERBOARD</a>
               <a href="#" className="hover:text-[var(--foreground)] transition-colors">CHANGELOG</a>
-              <a href="#" className="hover:text-[var(--foreground)] transition-colors">GITHUB</a>
+              <a href="https://github.com/Visheshjha11" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--foreground)] transition-colors">GITHUB</a>
               <a href="#" className="hover:text-[var(--foreground)] transition-colors">DISCORD</a>
             </nav>
             <nav className="flex flex-wrap gap-x-8 gap-y-4 text-[10px] tracking-[0.3em] text-[var(--muted-foreground)]">

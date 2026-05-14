@@ -9,9 +9,9 @@ export function TopNav() {
         </div>
         <nav className="hidden md:flex items-center gap-6 text-[11px] tracking-[0.25em] text-[var(--muted-foreground)]">
           <a href="#daily" className="hover:text-[var(--foreground)]">DAILY</a>
-          <a href="#modes" className="hover:text-[var(--foreground)]">MODES</a>
           <a href="#flow" className="hover:text-[var(--foreground)]">FLOW</a>
-          <a href="#arena" className="hover:text-[var(--foreground)]">LIVE ARENA</a>
+          <a href="#modes" className="hover:text-[var(--foreground)]">MODES</a>
+          <a href="#social" className="hover:text-[var(--foreground)]">SOCIAL</a>
           <a href="#ranks" className="hover:text-[var(--foreground)]">RANKS</a>
         </nav>
         <div className="flex items-center">

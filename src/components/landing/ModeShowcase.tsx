@@ -15,7 +15,7 @@ export function ModeShowcase() {
       <SectionHeader
         tag="LOADOUTS"
         title="Eight modes. One discipline."
-        sub="Pick your weapon. Each mode trains a different mechanic — frontend reflexes, terminal muscle, query construction."
+        sub="Pick your weapon. Each mode trains a different mechanic - frontend reflexes, terminal muscle, query construction."
       />
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--border)]">
         {MODES.map((m) => {

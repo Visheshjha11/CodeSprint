@@ -9,7 +9,7 @@ export function SocialSystems() {
   });
 
   return (
-    <Section>
+    <Section id="social">
       <SectionHeader
         tag="SOCIAL"
         title="Built for the developer flex."

@@ -20,7 +20,7 @@ export function TelemetryHUD({ wpm, accuracy, errors, combo, multiplier, flow, z
       <Metric label="MULT"     value={`x${multiplier.toFixed(1)}`} mask={mask} />
       <Metric label="FLOW"     value={flow.toString().padStart(2, "0")} tone="cyan" big mask={mask} />
       <Metric label="ZONE"     value={`Z${zone}`} mask={mask} />
-      <Metric label="RANK"     value={rank ?? "—"} mask={mask} />
+      <Metric label="RANK"     value={rank ?? "-"} mask={mask} />
       <Metric label="STATUS"   value={errors > 3 ? "FAULT" : "Great"} tone={errors > 3 ? "red" : "green"} mask={mask} />
     </div>
   );

@@ -62,7 +62,7 @@ git push -u origin feat/telemetry`,
 }`,
   ],
   "neural-edit": [
-`// AI suggestion — fix the off-by-one and null guard
+`// AI suggestion - fix the off-by-one and null guard
 function lastN(items, n) {
   if (!items) return [];
   return items.slice(items.length - n + 1);
