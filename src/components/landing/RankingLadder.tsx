@@ -16,7 +16,7 @@ export function RankingLadder() {
       <SectionHeader
         tag="LADDER"
         title="Ranks built for the long climb."
-        sub="Promotion and relegation every Sunday. Identity that compounds across seasons."
+        sub="Promotion and relegation. Identity that compounds across seasons."
       />
       <div className="overflow-x-auto pb-6 -mx-6 px-6">
         <div className="flex items-stretch min-w-[1000px] gap-px bg-[var(--border)]">
@@ -39,9 +39,7 @@ export function RankingLadder() {
           })}
         </div>
       </div>
-      <div className="mt-6 text-[11px] text-[var(--muted-foreground)]">
-        Promotion / relegation runs every Sunday at 23:59 UTC. Top 0.1% qualify for the Architect tier each season.
-      </div>
+      
     </Section>
   );
 }
