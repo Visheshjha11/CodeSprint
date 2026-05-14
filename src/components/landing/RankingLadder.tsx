@@ -18,19 +18,20 @@ export function RankingLadder() {
         title="Ranks built for the long climb."
         sub="Promotion and relegation every Sunday. Identity that compounds across seasons."
       />
-      <div className="overflow-x-auto">
-        <div className="flex items-stretch min-w-[820px]">
+      <div className="overflow-x-auto pb-6 -mx-6 px-6">
+        <div className="flex items-stretch min-w-[1000px] gap-px bg-[var(--border)]">
           {TIERS.map((t, i) => {
             const here = t.name === "Master";
             return (
-              <div key={t.name} className="flex-1 min-w-0">
-                <div className={`h-1`} style={{ backgroundColor: t.color, opacity: 0.4 + i * 0.08 }}/>
-                <div className={`bg-[var(--surface-1)] border-r hairline p-4 ${here ? "shadow-glow-primary" : ""}`}>
+              <div key={t.name} className="flex-1 min-w-0 flex flex-col">
+                <div className={`h-1.5`} style={{ backgroundColor: t.color, opacity: 0.4 + i * 0.08 }}/>
+                <div className={`bg-[var(--surface-1)] p-6 flex-1 ${here ? "relative" : ""}`}>
+                  {here && <div className="absolute inset-0 bg-[var(--primary)] opacity-[0.03] pointer-events-none" />}
                   <div className="text-[10px] tracking-[0.3em] text-[var(--muted-foreground)]">TIER {String(i+1).padStart(2,"0")}</div>
-                  <div className="text-base mt-1" style={{ color: t.color }}>{t.name}</div>
-                  <div className="text-[10px] mt-3 text-[var(--muted-foreground)] tabular-nums">P{[0,25,50,70,85,94,98][i]}+</div>
+                  <div className="text-lg mt-2 font-bold" style={{ color: t.color }}>{t.name}</div>
+                  <div className="text-[10px] mt-4 text-[var(--muted-foreground)] tabular-nums">P{[0,25,50,70,85,94,98][i]}+</div>
                   {here && (
-                    <div className="mt-2 text-[10px] tracking-[0.25em] text-[var(--primary)]">▲ YOU ARE HERE</div>
+                    <div className="mt-4 text-[9px] tracking-[0.25em] text-[var(--primary)] font-bold">▲ YOU ARE HERE</div>
                   )}
                 </div>
               </div>
