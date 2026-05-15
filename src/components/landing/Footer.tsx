@@ -12,7 +12,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6 group w-fit">
               <div className="w-2.5 h-2.5 bg-[var(--primary)] shadow-[0_0_12px_var(--primary)] group-hover:scale-125 transition-transform duration-500" />
-              <span className="text-base tracking-[0.4em] font-bold text-[var(--foreground)]">CODESPRINT</span>
+              <span className="text-base tracking-[0.4em] font-bold text-[var(--foreground)]">VELOCITY.DEV</span>
             </Link>
             <p className="text-[11px] tracking-[0.1em] text-[var(--muted-foreground)] max-w-[240px] leading-relaxed mb-8 opacity-80 ">
               TRAIN LIKE A TOP DEVELOPER. <br />
@@ -41,10 +41,9 @@ export function Footer() {
           </Cluster>
 
           <Cluster title="DEVELOPERS">
-            <FooterLink href="https://github.com/Visheshjha11/CodeSprint">API Documentation</FooterLink>
-            <FooterLink href="https://github.com/Visheshjha11/CodeSprint">Changelog</FooterLink>
+            <FooterLink href="https://github.com/Visheshjha11/CodeSprint">Documentation</FooterLink>
             <FooterLink href="https://github.com/Visheshjha11/CodeSprint" external>GitHub Repository</FooterLink>
-            <FooterLink href="https://github.com/Visheshjha11/CodeSprint/issues">Report Telemetry Bug</FooterLink>
+            <FooterLink href="https://github.com/Visheshjha11/CodeSprint/issues">Report Bug</FooterLink>
           </Cluster>
 
           <Cluster title="SOCIAL">
@@ -58,7 +57,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t hairline flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col sm:flex-row items-center gap-6 text-[10px] tracking-[0.25em] font-bold text-[var(--muted-foreground)] uppercase">
-            <span>© {new Date().getFullYear()} CODESPRINT</span>
+            <span>© {new Date().getFullYear()} VELOCITY.DEV</span>
             <div className="hidden sm:block w-px h-3 bg-[var(--border)]" />
             <a href="#" className="hover:text-[var(--primary)] transition-colors">Privacy Protocol</a>
             <a href="#" className="hover:text-[var(--primary)] transition-colors">Terms of Engagement</a>

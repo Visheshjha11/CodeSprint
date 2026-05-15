@@ -28,7 +28,7 @@ export function TopNav() {
       <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group z-[110]" onClick={() => setIsOpen(false)}>
           <div className="w-2 h-2 bg-[var(--primary)] shadow-[0_0_10px_var(--primary)] group-hover:scale-125 transition-transform" />
-          <span className="text-sm tracking-[0.3em] font-mono font-bold">CODESPRINT</span>
+          <span className="text-sm tracking-[0.3em] font-mono font-bold">VELOCITY.DEV</span>
         </Link>
 
         {/* Desktop Nav */}

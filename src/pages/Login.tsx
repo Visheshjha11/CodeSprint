@@ -29,7 +29,7 @@ export default function Login() {
       {/* Header-like branding */}
       <Link to="/" className="absolute top-10 left-10 hidden md:flex items-center gap-2 group">
         <div className="w-2 h-2 bg-[var(--primary)] shadow-[0_0_8px_var(--primary)] group-hover:scale-125 transition-transform" />
-        <span className="text-sm tracking-[0.3em] font-mono">CODESPRINT</span>
+        <span className="text-sm tracking-[0.3em] font-mono">VELOCITY.DEV</span>
       </Link>
 
       <div className="w-full max-w-[420px] relative z-10 px-4 sm:px-0">
@@ -42,7 +42,7 @@ export default function Login() {
               {isSignup ? "CREATE ACCOUNT" : "WELCOME BACK"}
             </h1>
             <p className="text-[9px] sm:text-[10px] tracking-[0.2em] text-[var(--muted-foreground)] uppercase max-w-[280px] mx-auto leading-relaxed">
-              {isSignup ? "Join CodeSprint and start competing with developers worldwide." : "Access your developer arena and continue competing."}
+              {isSignup ? "Join velocity.dev and start competing with developers worldwide." : "Access your developer arena and continue competing."}
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function Login() {
                 required
                 disabled={isLoading}
                 className="w-full bg-[var(--surface-2)] border hairline px-4 py-3 text-sm focus:outline-none focus:border-[var(--primary)] transition-all font-mono disabled:opacity-50"
-                placeholder="developer@codesprint.dev"
+                placeholder="developer@velocity.dev"
               />
             </div>
 
@@ -109,7 +109,7 @@ export default function Login() {
                   INITIALIZING...
                 </>
               ) : (
-                isSignup ? "JOIN CODESPRINT" : "LAUNCH SESSION"
+                isSignup ? "JOIN VELOCITY" : "LAUNCH SESSION"
               )}
             </button>
           </form>

@@ -8,7 +8,7 @@ export function ShareCard({ wpm, accuracy, flow, rank, percentile, mode, date = 
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="relative p-4 sm:p-5 h-full flex flex-col justify-between">
         <div className="flex items-center justify-between text-[9px] sm:text-[10px] tracking-[0.25em] text-[var(--muted-foreground)] font-bold">
-          <span>CODESPRINT // RESULT</span>
+          <span>VELOCITY // RESULT</span>
           <span>S01 · {date.toLocaleDateString("en-CA")}</span>
         </div>
 
@@ -32,7 +32,7 @@ export function ShareCard({ wpm, accuracy, flow, rank, percentile, mode, date = 
 
         <div className="flex items-center justify-between text-[8px] sm:text-[9px] tracking-[0.2em] text-[var(--muted-foreground)] font-bold opacity-60">
           <span className="uppercase">Validated run</span>
-          <span>codesprint.dev</span>
+          <span>velocity.dev</span>
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ export function FinalCTA() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-[10px] tracking-[0.3em] text-[var(--muted-foreground)] font-bold opacity-60"
         >
-          CODESPRINT · DEVELOPER PERFORMANCE ENGINEERING · S01 · v1.0.4
+          VELOCITY.DEV · DEVELOPER PERFORMANCE ENGINEERING · S01 · v1.0.4
         </motion.div>
       </div>
     </section>
