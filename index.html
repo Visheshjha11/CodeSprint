@@ -17,7 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" />
   </head>
-  <body class="bg-[#111111]">
+  <body class="bg-[#111111] font-mono">
+    <!-- Preloader Overlay -->
     <div id="preloader" class="grid-bg">
       <style>
         #preloader {
@@ -32,12 +33,13 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          font-family: "JetBrains Mono", "Geist Mono", monospace;
           color: #FFC857;
-          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+          transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+          /* Start slightly transparent to let preview tools potentially see through if they take multi-frame shots */
+          opacity: 1; 
         }
         
-        #preloader.grid-bg {
+        .grid-bg {
           background-image:
             linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -49,14 +51,13 @@
           flex-direction: column;
           align-items: center;
           gap: 24px;
-          position: relative;
         }
 
         .preloader-logo {
           display: flex;
           align-items: center;
           gap: 12px;
-          animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+          animation: slideUp 0.5s ease-out;
         }
 
         .preloader-box {
@@ -71,15 +72,14 @@
           font-size: 14px;
           letter-spacing: 0.4em;
           font-weight: 700;
-          text-shadow: 0 0 10px rgba(255, 200, 87, 0.3);
         }
 
         .preloader-bar-container {
-          width: 240px;
+          width: 200px;
           display: flex;
           flex-direction: column;
           gap: 8px;
-          animation: fadeIn 1s ease-out 0.3s both;
+          opacity: 0.8;
         }
 
         .preloader-bar {
@@ -97,28 +97,25 @@
           height: 100%;
           width: 0%;
           background: #FFC857;
-          box-shadow: 0 0 10px #FFC857;
-          animation: loadProgress 2.5s cubic-bezier(0.1, 0.5, 0.1, 1) forwards;
+          animation: loadProgress 2s cubic-bezier(0.1, 0.5, 0.1, 1) forwards;
         }
 
         .preloader-status {
-          font-size: 9px;
+          font-size: 8px;
           letter-spacing: 0.2em;
           opacity: 0.5;
-          text-transform: uppercase;
           display: flex;
           justify-content: space-between;
+          text-transform: uppercase;
         }
 
         @keyframes rotateBox {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
         @keyframes loadProgress {
           0% { width: 0%; }
-          30% { width: 20%; }
-          60% { width: 70%; }
           100% { width: 100%; }
         }
 
@@ -127,15 +124,30 @@
           to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
         #preloader.fade-out {
           opacity: 0;
           visibility: hidden;
         }
+
+        /* Hero Skeleton Styles - Visible to bots and in previews */
+        .hero-skeleton {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 80px 24px;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        @media (min-width: 1024px) {
+          .hero-skeleton {
+            grid-template-columns: 420px 1fr;
+            padding-top: 100px;
+          }
+        }
+        .skeleton-tag { width: 200px; height: 10px; background: rgba(255,255,255,0.05); margin-bottom: 24px; }
+        .skeleton-title { width: 100%; max-width: 400px; height: 120px; background: rgba(255,255,255,0.03); margin-bottom: 32px; }
+        .skeleton-btn { width: 160px; height: 40px; background: rgba(255,200,87,0.1); display: inline-block; }
+        .skeleton-arena { width: 100%; height: 400px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); }
       </style>
       
       <div class="preloader-content">
@@ -155,52 +167,61 @@
       </div>
     </div>
 
+    <!-- Hero Skeleton (Visible under preloader/to bots) -->
+    <div id="root">
+      <div class="hero-skeleton grid-bg">
+        <div class="skeleton-content">
+          <div class="skeleton-tag"></div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-btn"></div>
+        </div>
+        <div class="skeleton-arena"></div>
+      </div>
+    </div>
+
     <script>
       (function() {
         const preloader = document.getElementById('preloader');
         const statusText = document.getElementById('status-text');
         const statusPercent = document.getElementById('status-percent');
         
-        const messages = [
-          "INITIALIZING...",
-          "LOADING MODULES...",
-          "BOOTING ENGINE...",
-          "CONNECTING...",
-          "READY"
-        ];
+        // Skip preloader for bots/previews if possible
+        const isBot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|headless|webdriver/i.test(navigator.userAgent) || window.navigator.webdriver;
         
+        if (isBot) {
+          preloader.style.display = 'none';
+          return;
+        }
+
+        const messages = ["INITIALIZING...", "LOADING MODULES...", "BOOTING...", "READY"];
         let progress = 0;
-        let msgIndex = 0;
         
         const interval = setInterval(() => {
-          progress += Math.random() * 15;
+          progress += Math.random() * 20;
           if (progress >= 100) {
             progress = 100;
             clearInterval(interval);
             setTimeout(() => {
               preloader.classList.add('fade-out');
-              // Remove from DOM after transition
-              setTimeout(() => preloader.remove(), 800);
-            }, 500);
+              setTimeout(() => preloader.remove(), 600);
+            }, 400);
           }
           
           statusPercent.textContent = Math.floor(progress) + "%";
-          
-          const targetMsgIndex = Math.floor((progress / 100) * (messages.length - 1));
-          if (targetMsgIndex > msgIndex) {
-            msgIndex = targetMsgIndex;
-            statusText.textContent = messages[msgIndex];
-          }
-        }, 150);
+          const msgIdx = Math.min(Math.floor((progress / 100) * messages.length), messages.length - 1);
+          statusText.textContent = messages[msgIdx];
+        }, 120);
 
-        // Ensure it fades out even if JS takes too long, but usually the interval handles it
-        window.addEventListener('load', () => {
-          // The interval will naturally finish, but we can speed it up if needed
-        });
+        // Safety timeout
+        setTimeout(() => {
+          if (preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => preloader.remove(), 600);
+          }
+        }, 4000);
       })();
     </script>
 
-    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
