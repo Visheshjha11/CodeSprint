@@ -41,9 +41,9 @@ export function Footer() {
           </Cluster>
 
           <Cluster title="DEVELOPERS">
-            <FooterLink href="https://github.com/Visheshjha11/CodeSprint">Documentation</FooterLink>
-            <FooterLink href="https://github.com/Visheshjha11/CodeSprint" external>GitHub Repository</FooterLink>
-            <FooterLink href="https://github.com/Visheshjha11/CodeSprint/issues">Report Bug</FooterLink>
+            <FooterLink href="https://github.com/Visheshjha11/Velocitydev">Documentation</FooterLink>
+            <FooterLink href="https://github.com/Visheshjha11/Velocitydev" external>GitHub Repository</FooterLink>
+            <FooterLink href="https://github.com/Visheshjha11/Velocitydev/issues">Report Bug</FooterLink>
           </Cluster>
 
           <Cluster title="SOCIAL">
