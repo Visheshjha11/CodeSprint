@@ -24,7 +24,7 @@ export interface UseEngineResult {
   combo: { streak: number; multiplier: number };
   flow: { score: number; rhythm: number; consistency: number; momentum: number };
   pressure: { zone: number };
-  telemetry: { intervals: number[]; rollingWpm: number[] };
+  telemetry: { intervals: number[]; rollingWpm: number[]; wpmHistory: number[] };
   bonuses: Bonus[];
   charStatuses: CharStatus[];
   reset: () => void;
@@ -51,6 +51,7 @@ export function useTypingEngine(initial: string): UseEngineResult {
   const lastKeyAt = useRef<number>(0);
   const intervalsRef = useRef<number[]>([]);
   const rollingWpmRef = useRef<number[]>([]);
+  const wpmHistoryRef = useRef<number[]>([]);
   const lastSampleAt = useRef<number>(0);
   const correctSinceSampleRef = useRef<number>(0);
   const bonusIdRef = useRef(1);
@@ -67,7 +68,7 @@ export function useTypingEngine(initial: string): UseEngineResult {
     setStartedAt(null); setCompletedAt(null);
     setStreak(0); setMaxStreak(0);
     setZeroErrSegment(0); setDroppedBelow90(false); setPerfectLine(true);
-    setBonuses([]); intervalsRef.current = []; rollingWpmRef.current = [];
+    setBonuses([]); intervalsRef.current = []; rollingWpmRef.current = []; wpmHistoryRef.current = [];
     lastKeyAt.current = 0; lastSampleAt.current = 0; correctSinceSampleRef.current = 0;
   }, []);
 
@@ -116,9 +117,10 @@ export function useTypingEngine(initial: string): UseEngineResult {
 
       // sample rolling WPM every 1.5s
       const elapsed = t - lastSampleAt.current;
-      if (elapsed > 1500) {
+      if (elapsed > 1000) {
         const wpm = (correctSinceSampleRef.current / 5) / (elapsed / 60000);
         rollingWpmRef.current.push(wpm);
+        wpmHistoryRef.current.push(Math.round(wpm));
         if (rollingWpmRef.current.length > 24) rollingWpmRef.current.shift();
         lastSampleAt.current = t;
         correctSinceSampleRef.current = 0;
@@ -215,7 +217,7 @@ export function useTypingEngine(initial: string): UseEngineResult {
     combo: { streak, multiplier },
     flow,
     pressure: { zone: pressureZone },
-    telemetry: { intervals: intervalsRef.current, rollingWpm: rollingWpmRef.current },
+    telemetry: { intervals: intervalsRef.current, rollingWpm: rollingWpmRef.current, wpmHistory: wpmHistoryRef.current },
     bonuses,
     charStatuses,
     reset,

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useTypingEngine } from "@/hooks/useTypingEngine";
 import { CodeSurface } from "./CodeSurface";
 import { TelemetryHUD } from "./TelemetryHUD";
@@ -113,34 +114,56 @@ export function TypingArena({ demo = false }: { demo?: boolean }) {
 
       {/* reveal */}
       {showReveal && (
-        <div className="absolute inset-0 bg-[var(--background)]/85 backdrop-blur-sm grid place-items-center p-4 z-10">
-          <div className="w-full max-w-md">
-            <div className="text-center mb-3">
-              <div className="text-[10px] tracking-[0.3em] text-[var(--muted-foreground)]">RUN COMPLETE</div>
-              <div className="mt-1 text-xl">
-                You typed faster than{" "}
-                <span className="text-[var(--primary)] text-glow-primary">{p}%</span>{" "}
-                of developers.
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 bg-[var(--background)]/90 backdrop-blur-md grid place-items-center p-4 z-20"
+        >
+          <motion.div 
+            initial={{ scale: 0.9, y: 20, opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="w-full max-w-md"
+          >
+            <div className="text-center mb-6">
+              <div className="text-[10px] tracking-[0.4em] text-[var(--muted-foreground)] uppercase font-bold">Session Complete</div>
+              <div className="mt-2 text-2xl font-bold tracking-tight">
+                Classification: <span className="text-[var(--primary)] text-glow-primary">{rank.tier} {rank.division}</span>
+              </div>
+              <div className="text-[11px] text-[var(--muted-foreground)] mt-1 tracking-wider uppercase">
+                <span className="opacity-60">Velocity:</span> <span className="text-[var(--foreground)]">{engine.metrics.wpm} WPM</span>
+                <span className="mx-2 opacity-30">|</span>
+                <span className="opacity-60">Stability:</span> <span className="text-[var(--foreground)]">{(engine.metrics.accuracy * 100).toFixed(0)}%</span>
               </div>
             </div>
+            
             <ShareCard
               wpm={engine.metrics.wpm}
               accuracy={engine.metrics.accuracy}
               flow={engine.flow.score}
               rank={`${rank.tier} ${rank.division}`}
-              percentile={p}
+              maxStreak={engine.state.maxStreak}
               mode={mode.replace("-", " ").toUpperCase()}
+              wpmHistory={engine.telemetry.wpmHistory}
             />
-            <div className="mt-3 flex justify-center gap-2">
-              <button onClick={handleNext} className="px-4 py-2 bg-[var(--primary)] text-[var(--primary-foreground)] text-[11px] tracking-[0.25em]">
-                NEXT SPRINT
+            
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+              <button 
+                onClick={handleNext} 
+                className="group relative px-8 py-3 bg-[var(--primary)] text-[var(--primary-foreground)] text-[11px] tracking-[0.3em] font-bold overflow-hidden transition-all hover:shadow-glow-primary active:scale-95"
+              >
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform" />
+                <span className="relative">NEXT SPRINT</span>
               </button>
-              <button onClick={() => { setShowReveal(false); engine.reset(); }} className="px-4 py-2 border hairline text-[11px] tracking-[0.25em] hover:bg-[var(--surface-2)]">
+              <button 
+                onClick={() => { setShowReveal(false); engine.reset(); }} 
+                className="px-8 py-3 border border-[var(--border)] text-[11px] tracking-[0.3em] font-bold hover:bg-[var(--surface-2)] transition-colors active:scale-95"
+              >
                 RETRY
               </button>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </div>
   );
