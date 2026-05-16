@@ -91,6 +91,23 @@ LIMIT 25;`,
     t = setTimeout(() => fn(...args), ms);
   };
 };`,
+    `def get_squared_evens(nums):
+    return [x**2 for x in nums if x % 2 == 0]
+    
+result = get_squared_evens(range(10))`,
+    `class Developer:
+    def __init__(self, name, speed):
+        self.name = name
+        self.speed = speed
+
+    def is_pro(self):
+        return self.speed > 80`,
+    `try:
+    response = requests.get(url, timeout=5)
+    response.raise_for_status()
+    print(f"Status: {response.status_code}")
+except Exception as e:
+    print(f"Error: {e}")`,
   ],
 };
 
